@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  catalyst-postgresql-development:
+    container_name: ${POSTGRESQL_CONTAINER}
+    hostname: ${POSTGRESQL_HOST}
+    image: "${POSTGRESQL_IMAGE}:${POSTGRESQL_IMAGE_TAG}"
+    restart: always
+    environment:
+      TZ: ${POSTGRESQL_TIME_ZONE}
+      POSTGRES_DB: ${POSTGRESQL_DB}
+      POSTGRES_USER: ${POSTGRESQL_USER}
+      POSTGRES_PASSWORD: ${POSTGRESQL_PASSWORD}
+    networks:
+      - catalyst-environment-development
+
+  catalyst-pgadmin-development:
+    container_name: ${PGADMIN_CONTAINER}
+    hostname: ${PGADMIN_HOST}
+    image: "${PGADMIN_IMAGE}:${PGADMIN_IMAGE_TAG}"
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+    ports:
+      - "5430:80"
+    networks:
+      - catalyst-environment-development
+
+networks:
+  catalyst-environment-development:
+    external: true
+    name: catalyst-environment-development

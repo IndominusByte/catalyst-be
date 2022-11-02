@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  catalyst-db-migration-development:
+    container_name: ${DB_MIGRATION_CONTAINER}
+    hostname: ${DB_MIGRATION_HOST}
+    image: "${DB_MIGRATION_IMAGE}:${DB_MIGRATION_IMAGE_TAG}"
+    environment:
+      BACKEND_STAGE: ${BACKEND_STAGE}
+    networks:
+      - catalyst-environment-development
+
+networks:
+  catalyst-environment-development:
+    external: true
+    name: catalyst-environment-development
+

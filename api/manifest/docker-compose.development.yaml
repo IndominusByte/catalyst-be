@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  catalyst-go-development:
+    container_name: ${BACKEND_CONTAINER}
+    hostname: ${BACKEND_HOST}
+    image: "${BACKEND_IMAGE}:${BACKEND_IMAGE_TAG}"
+    restart: always
+    environment:
+      BACKEND_STAGE: ${BACKEND_STAGE}
+    ports:
+      - "3000:3000"
+    networks:
+      - catalyst-environment-development
+    volumes:
+      - /app/bin
+      - ../:/app
+
+networks:
+  catalyst-environment-development:
+    external: true
+    name: catalyst-environment-development
+

@@ -1,0 +1,8 @@
+{
+  "driver": "postgres",
+  "encryption_key": "2B4B6250655368566D59703373367639",
+  "pg_talk_user": "nWbeb7vGG8-SdZVd8Gf5JxOsXQ9LFTjPypye",
+  "pg_talk_password": "0MuAqjkt-zo9OaZIQYK6Va9tBGzhc49iUw",
+  "master_dsn_no_cred": "postgres://%s:%s@catalyst-postgresql.service:5432/catalyst?sslmode=disable",
+  "file_migration": "file://db/migrations"
+}

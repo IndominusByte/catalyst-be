@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  catalyst-go-production:
+    container_name: ${BACKEND_CONTAINER}
+    hostname: ${BACKEND_HOST}
+    image: "${BACKEND_IMAGE}:${BACKEND_IMAGE_TAG}"
+    restart: always
+    environment:
+      BACKEND_STAGE: ${BACKEND_STAGE}
+    ports:
+      - "3001:3001"
+    networks:
+      - catalyst-environment-production
+
+networks:
+  catalyst-environment-production:
+    external: true
+    name: catalyst-environment-production
+

@@ -1,0 +1,635 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Restful API",
+    "description": "Documentation",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/brand": {
+      "post": {
+        "tags": ["brand"],
+        "summary": "Create Brand",
+        "description": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schema/BrandCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Request Created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 201,
+                  "status": true,
+                  "message": "Request Created.",
+                  "detail_message": {
+                    "_app": "Successfully add a new brand."
+                  },
+                  "results": null
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation Failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 400,
+                  "status": false,
+                  "message": "Validation Failed.",
+                  "detail_message": {
+                    "_app": "The name has already been taken."
+                  },
+                  "results": null
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 422,
+                  "status": false,
+                  "message": "Unprocessable Entity.",
+                  "detail_message": {
+                    "_body": "Invalid input type."
+                  },
+                  "data": null
+                }
+              }
+            }
+          }
+        },
+      }
+    },
+    "/product": {
+      "post": {
+        "tags": ["product"],
+        "summary": "Create Product",
+        "description": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schema/ProductCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Request Created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 201,
+                  "status": true,
+                  "message": "Request Created.",
+                  "detail_message": {
+                    "_app": "Successfully add a new product."
+                  },
+                  "results": null
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation Failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 400,
+                  "status": false,
+                  "message": "Validation Failed.",
+                  "detail_message": {
+                    "_app": "The name has already been taken."
+                  },
+                  "results": null
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 404,
+                  "status": false,
+                  "message": "Resource Not Found.",
+                  "detail_message": {
+                    "_app": "Brand not found."
+                  },
+                  "results": null
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 422,
+                  "status": false,
+                  "message": "Unprocessable Entity.",
+                  "detail_message": {
+                    "_body": "Invalid input type."
+                  },
+                  "data": null
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/{product_id}": {
+      "get": {
+        "tags": ["product"],
+        "summary": "Get Product By Id",
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "product_id",
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            "name": "product_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Success.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 200,
+                  "status": true,
+                  "message": "Request Success.",
+                  "detail_message": null,
+                  "results": {
+                    "id": 1,
+                    "name": "string",
+                    "description": "string",
+                    "price": 1,
+                    "brand_id": 1,
+                    "created_at": "2022-11-01T21:42:37.041383Z",
+                    "updated_at": "2022-11-01T21:42:37.041383Z"                
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 404,
+                  "status": false,
+                  "message": "Resource Not Found.",
+                  "detail_message": {
+                    "_app": "Product not found."
+                  },
+                  "results": null
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 422,
+                  "status": false,
+                  "message": "Unprocessable Entity.",
+                  "detail_message": {
+                    "_body": "Invalid input type."
+                  },
+                  "data": null
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/brand": {
+      "get": {
+        "tags": ["product"],
+        "summary": "Get All Product by Brand",
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "Page",
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            "name": "page",
+            "in": "query"
+          },
+          {
+            "required": true,
+            "schema": {
+              "title": "Per Page",
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            "name": "per_page",
+            "in": "query"
+          },
+          {
+            "required": true,
+            "schema": {
+              "title": "Brand id",
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            "name": "brand_id",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Success.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 200,
+                  "status": true,
+                  "message": "Request Success.",
+                  "detail_message": null,
+                  "results": {
+                    "data": [
+                      {
+                        "id": 1,
+                        "name": "string",
+                        "description": "string",
+                        "price": 1,
+                        "brand_id": 1,
+                        "created_at": "2022-11-01T21:42:37.041383Z",
+                        "updated_at": "2022-11-01T21:42:37.041383Z"
+                      }
+                    ],
+                    "total": 0,
+                    "next_num": null,
+                    "prev_num": null,
+                    "page": 1,
+                    "iter_pages": []
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 404,
+                  "status": false,
+                  "message": "Resource Not Found.",
+                  "detail_message": {
+                    "_app": "Brand not found."
+                  },
+                  "results": null
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 422,
+                  "status": false,
+                  "message": "Unprocessable Entity.",
+                  "detail_message": {
+                    "_body": "Invalid input type."
+                  },
+                  "data": null
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/order": {
+      "post": {
+        "tags": ["order"],
+        "summary": "Create Order",
+        "description": "",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schema/OrderCreate"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Request Created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 201,
+                  "status": true,
+                  "message": "Request Created.",
+                  "detail_message": {
+                    "_app": "Successfully add a new order."
+                  },
+                  "results": null
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Product or User not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 404,
+                  "status": false,
+                  "message": "Resource Not Found.",
+                  "detail_message": {
+                    "_app": "string"
+                  },
+                  "results": null
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 422,
+                  "status": false,
+                  "message": "Unprocessable Entity.",
+                  "detail_message": {
+                    "_body": "Invalid input type."
+                  },
+                  "data": null
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/order/{order_id}": {
+      "get": {
+        "tags": ["order"],
+        "summary": "Get Order By Id",
+        "description": "",
+        "parameters": [
+          {
+            "required": true,
+            "schema": {
+              "title": "order_id",
+              "exclusiveMinimum": 0,
+              "type": "integer"
+            },
+            "name": "order_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request Success.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 200,
+                  "status": true,
+                  "message": "Request Success.",
+                  "detail_message": null,
+                  "results": {
+                    "id": 1,
+                    "buyer_id": 1,
+                    "buyer_name": "user",
+                    "product_id": 1,
+                    "product_name": "string",
+                    "qty": 1,
+                    "price": 1,
+                    "total_price": 1,
+                    "created_at": "2022-11-02T11:08:48.715174Z",
+                    "updated_at": "2022-11-02T11:08:48.715174Z"                
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource Not Found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 404,
+                  "status": false,
+                  "message": "Resource Not Found.",
+                  "detail_message": {
+                    "_app": "Order not found."
+                  },
+                  "results": null
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/ExampleResponse"
+                },
+                "example": {
+                  "status_code": 422,
+                  "status": false,
+                  "message": "Unprocessable Entity.",
+                  "detail_message": {
+                    "_body": "Invalid input type."
+                  },
+                  "data": null
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schema": {
+      "ExampleResponse": {
+        "title": "ExampleResponse",
+        "type": "object",
+        "required": ["status_code", "status", "message"],
+        "properties": {
+          "status_code": {
+            "title": "status_code",
+            "type": "integer"
+          },
+          "status": {
+            "title": "status",
+            "type": "boolean"
+          },
+          "message": {
+            "title": "message",
+            "type": "string"
+          },
+          "detail_message": {
+            "title": "detail_message",
+            "type": "string"
+          },
+          "results": {
+            "title": "results",
+            "type": "object"
+          }
+        }
+      },
+      "BrandCreate": {
+        "title": "BrandCreate",
+        "required": ["name"],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "maxLength": 100,
+            "minLength": 3,
+            "type": "string"
+          }
+        }
+      },
+      "ProductCreate": {
+        "title": "ProductCreate",
+        "required": ["name", "description", "price", "brand_id"],
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "name",
+            "maxLength": 100,
+            "minLength": 3,
+            "type": "string"
+          },
+          "description": {
+            "title": "description",
+            "minLength": 5,
+            "type": "string"
+          },
+          "price": {
+            "title": "price",
+            "exclusiveMinimum": 1,
+            "type": "integer"
+          },
+          "brand_id": {
+            "title": "brand_id",
+            "exclusiveMinimum": 1,
+            "type": "integer"
+          }
+        }
+      },
+      "OrderCreate": {
+        "title": "OrderCreate",
+        "required": ["buyer_id", "product_id", "qty"],
+        "type": "object",
+        "properties": {
+          "buyer_id": {
+            "title": "buyer_id",
+            "exclusiveMinimum": 1,
+            "type": "integer"
+          },
+          "product_id": {
+            "title": "product_id",
+            "exclusiveMinimum": 1,
+            "type": "integer"
+          },
+          "qty": {
+            "title": "qty",
+            "exclusiveMinimum": 1,
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}
